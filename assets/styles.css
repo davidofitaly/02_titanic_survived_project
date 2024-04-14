@@ -1,20 +1,23 @@
 /* styles.css */
 
+/* Styling for the body */
 body {
     background-image: url('/assets/titanic.jpg');
-    background-size: cover; /* Dopasowanie tła do rozmiaru okna */
-    background-position: center; /* Wyrównanie tła do środka */
-
+    background-size: cover; /* Fit the background to the window size */
+    background-position: center; /* Center the background */
 }
+
+/* Styling for header */
 .header {
     text-align: center;
     color: #333;
-    font-size:48px}
+    font-size:48px;
+}
 
-
+/* Styling for main container */
 .main-div {
     width: 80%;
-    margin: 0 auto; /* centruje div na stronie */
+    margin: 0 auto; /* Center the div on the page */
     padding: 20px;
     font-size: 20px;
     font-family: Arial;
@@ -23,22 +26,23 @@ body {
     font-weight: bold;
 }
 
+/* Styling for component containers */
 .component-div {
-    margin-bottom: 40px; /* większa przerwa między komponentami */
+    margin-bottom: 40px; /* Increased gap between components */
 }
 
+/* Styling for result container */
 .result-div {
     text-align: center;
     margin: 0 auto;
     display: block;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Dodaje cień */
-    background-color: rgba(255, 255, 255, 0.5); /* Półprzezroczyste białe tło */
-
-
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Adding shadow */
+    background-color: rgba(255, 255, 255, 0.5); /* Semi-transparent white background */
 }
 
+/* Styling for centered button */
 .button-center {
-    /* Twoje obecne style */
+    /* Your current styles */
     width: 150px;
     height: 50px;
     border-radius: 25px;
@@ -50,25 +54,26 @@ body {
     margin: 20px auto;
     display: inline-block;
     background-color: transparent;
-    border: 2px solid black; /* Dodanie ramki */
-    position: relative; /* Ustawienie pozycji na względną */
-    left: 50%; /* Przesunięcie o 50% szerokości kontenera */
-    transform: translateX(-50%); /* Przesunięcie w lewo o połowę swojej własnej szerokości */
+    border: 2px solid black; /* Adding border */
+    position: relative; /* Setting position to relative */
+    left: 50%; /* Shifting by 50% of container width */
+    transform: translateX(-50%); /* Shifting left by half of its own width */
 
-    /* Dodanie efektu podświetlenia po najechaniu myszką */
-    transition: background-color 0.3s ease; /* Płynne przejście */
+    /* Adding hover effect */
+    transition: background-color 0.3s ease; /* Smooth transition */
 }
 
+/* Styling for button hover effect */
 .button-center:hover {
-    background-color: rgba(175, 221, 255, 0.5); /* Lekko ciemniejsze tło po najechaniu */
+    background-color: rgba(241, 249, 255, 0.5); /* Slightly darker background on hover */
 }
 
-
+/* Styling for slider mark text */
 .rc-slider-mark-text {
-    color: #333; /* Ciemniejszy kolor czcionki */
-
+    color: #333; /* Darker font color */
 }
 
+/* Styling for custom slider track */
 .custom-slider .rc-slider-track {
-    background-color: grey; /* Zmień kolor suwaka na czerwony */
+    background-color: grey; /* Change slider color to grey */
 }
