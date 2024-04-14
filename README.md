@@ -6,7 +6,7 @@ This project provides a dashboard for predicting the survival probability of pas
 
 Clone the repository to your local machine:
 
-git clone https://github.com/your_username/your_repository.git
+git clone https://github.com/davidofitaly/02_titanic_survived_project.git
 
 ## Install
 
@@ -32,4 +32,4 @@ Prediction Result: Displays the predicted survival probability of the passenger 
 The dashboard utilizes external CSS for enhanced styling.
 
 Contributors
-[Dawid Włoch[(https://github.com/davidofitaly)
+[Dawid Włoch](https://github.com/davidofitaly)
