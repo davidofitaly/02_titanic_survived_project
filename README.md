@@ -18,7 +18,7 @@ pip install -r requirements.txt
 
 Navigate to the project directory:
 
-cd your_repository
+cd 02_titanic_survived_project
 
 Run the Dash application:
 
