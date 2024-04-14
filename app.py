@@ -1,28 +1,31 @@
+# Import necessary modules
 from dash import Dash, html, dcc
 import dash
 from dash.dependencies import Input, Output
 import data_processing
 
-# Initialize the dash app
+# Initialize the Dash application
 app = dash.Dash(__name__, external_stylesheets=['./assets/styles.css'])
 
-# Fetching Titanic dataset
+# Fetch Titanic dataset
 titanic_data_url = "https://raw.githubusercontent.com/datasciencedojo/datasets/master/titanic.csv"
 X_train, X_test, y_train, y_test = data_processing.preprocess_data(titanic_data_url)
 model = data_processing.train_model(X_train, y_train)
 
 # Define the layout of the app
 app.layout = html.Div([
-    html.H1("Titanic Survival Prediction", className='header'),
+    html.H1("Titanic Survival Prediction", className='header'),  # Header of the application
 
+    # Age input field
     html.Div([
-        html.Label("Select Age:"),
-        dcc.Input(id='age-input', type='number')
+        html.Label("Write Age:"),  # Label for the age input field
+        dcc.Input(id='age-input', type='number', style={'width': '10%', 'height': '20px', 'font-size': '16px', 'font-weight': 'bold'}),  # Age input field
     ], className='component-div'),
 
+    # Gender dropdown selection
     html.Div([
-        html.Label("Select Gender:"),
-        dcc.Dropdown(id='gender-dropdown', options=[
+        html.Label("Select Gender:"),  # Label for gender dropdown selection
+        dcc.Dropdown(id='gender-dropdown', options=[  # Gender dropdown selection
             {'label': 'Male', 'value': 0},
             {'label': 'Female', 'value': 1}
         ],
@@ -30,9 +33,10 @@ app.layout = html.Div([
         style={'font-size': '14px'})
     ], className='component-div'),
 
+    # Class dropdown selection
     html.Div([
-        html.Label("Select Class:"),
-        dcc.Dropdown(id='class-dropdown', options=[
+        html.Label("Select Class:"),  # Label for class dropdown selection
+        dcc.Dropdown(id='class-dropdown', options=[  # Class dropdown selection
             {'label': 'First', 'value': 1},
             {'label': 'Second', 'value': 2},
             {'label': 'Third', 'value': 3}
@@ -41,8 +45,9 @@ app.layout = html.Div([
         style={'font-size': '14px'})
     ], className='component-div'),
 
+    # Sibsp slider selection
     html.Div([
-        html.Label("Select Number of Siblings/Spouses Aboard:"),
+        html.Label("Select Number of Siblings/Spouses Aboard:"),  # Label for Sibsp slider selection
         dcc.Slider(
             id='sibsp-slider',
             min=0,
@@ -55,8 +60,9 @@ app.layout = html.Div([
         )
     ], className='component-div re-slider-mark-text'),
 
+    # Parch slider selection
     html.Div([
-        html.Label("Select Number of Parents/Children Aboard:"),
+        html.Label("Select Number of Parents/Children Aboard:"),  # Label for Parch slider selection
         dcc.Slider(
             id='parch-slider',
             min=0,
@@ -69,6 +75,7 @@ app.layout = html.Div([
         )
     ], className='component-div re-slider-mark-text'),
 
+    # Predict button
     html.Button('Predict', id='predict-button', className='button-center'),
     html.Br(),
     html.Div(id='prediction-output', className='result-div',)
