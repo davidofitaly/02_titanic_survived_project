@@ -5,7 +5,7 @@ import data_processing
 
 
 # Initialize the dash app
-app = dash.Dash(__name__)
+app = dash.Dash(__name__, external_stylesheets=['styles.css'])
 
 # Fetching Titanic dataset
 titanic_data_url = "https://raw.githubusercontent.com/datasciencedojo/datasets/master/titanic.csv"
