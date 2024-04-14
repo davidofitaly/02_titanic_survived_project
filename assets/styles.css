@@ -38,11 +38,31 @@ body {
 }
 
 .button-center {
+    /* Twoje obecne style */
+    width: 150px;
+    height: 50px;
+    border-radius: 25px;
+    color: black;
+    font-size: 16px;
+    font-weight: bold;
     text-align: center;
-    margin: 0 auto;
-    display: block;
+    line-height: 50px;
+    margin: 20px auto;
+    display: inline-block;
+    background-color: transparent;
+    border: 2px solid black; /* Dodanie ramki */
+    position: relative; /* Ustawienie pozycji na względną */
+    left: 50%; /* Przesunięcie o 50% szerokości kontenera */
+    transform: translateX(-50%); /* Przesunięcie w lewo o połowę swojej własnej szerokości */
 
+    /* Dodanie efektu podświetlenia po najechaniu myszką */
+    transition: background-color 0.3s ease; /* Płynne przejście */
 }
+
+.button-center:hover {
+    background-color: rgba(175, 221, 255, 0.5); /* Lekko ciemniejsze tło po najechaniu */
+}
+
 
 .rc-slider-mark-text {
     color: #333; /* Ciemniejszy kolor czcionki */
