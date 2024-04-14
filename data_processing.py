@@ -3,7 +3,7 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import train_test_split
 
 def preprocess_data(titanic_data_url):
-    titanic_dif = pd.read_csv(titanic_data_url)
+    titanic_df = pd.read_csv(titanic_data_url)
     features = ['Pclass', 'Sex', 'Age', 'SibSp', 'Parch', 'Fare', 'Embarked']
     target = 'Survived'
     titanic_df = titanic_df.dropna(subset=features + [target])
