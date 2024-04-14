@@ -1,0 +1,47 @@
+/* styles.css */
+
+body {
+    background-image: url('/assets/new.jpg');
+    background-size: cover; /* Dopasowanie tła do rozmiaru okna */
+    background-position: center; /* Wyrównanie tła do środka */
+    background-color: #ffffff;
+}
+.header {
+    text-align: center;
+    color: #333;
+    font-size:48px}
+
+
+.main-div {
+    width: 80%;
+    margin: 0 auto; /* centruje div na stronie */
+    padding: 20px;
+    font-size: 20px;
+    font-family: Arial;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.component-div {
+    margin-bottom: 40px; /* większa przerwa między komponentami */
+}
+
+.result-div {
+    text-align: center;
+    margin: 0 auto;
+    display: block;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Dodaje cień */
+    background-color: rgba(255, 255, 255, 0.5); /* Półprzezroczyste białe tło */
+
+}
+
+.button-center {
+    text-align: center;
+    margin: 0 auto;
+    display: block;
+
+}
+
+.rc-slider-mark-text {
+    color: #333; /* Ciemniejszy kolor czcionki */
+}
