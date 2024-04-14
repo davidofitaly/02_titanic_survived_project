@@ -1,7 +1,7 @@
 # Import necessary modules
 from dash import Dash, html, dcc
 import dash
-from dash.dependencies import Input, Output
+from dash.dependencies import Input, Output, State
 import data_processing
 
 # Initialize the Dash application
@@ -19,7 +19,7 @@ app.layout = html.Div([
     # Age input field
     html.Div([
         html.Label("Write Age:"),  # Label for the age input field
-        dcc.Input(id='age-input', type='number', style={'width': '10%', 'height': '20px', 'font-size': '16px', 'font-weight': 'bold'}),  # Age input field
+        dcc.Input(id='age-input', type='number', style={'width': '10%', 'height': '25px', 'font-size': '16px', 'font-weight': 'bold', 'border-radius': '5px', 'border':'0.5px solid grey'}),  # Age input field
     ], className='component-div'),
 
     # Gender dropdown selection
@@ -85,20 +85,22 @@ app.layout = html.Div([
 @app.callback(
     Output('prediction-output', 'children'),
     [Input('predict-button', 'n_clicks')],
-    [Input('age-input', 'value'),
-     Input('gender-dropdown', 'value'),
-     Input('class-dropdown', 'value'),
-     Input('sibsp-slider', 'value'),
-     Input('parch-slider', 'value')]
+    [State('age-input', 'value'),
+     State('gender-dropdown', 'value'),
+     State('class-dropdown', 'value'),
+     State('sibsp-slider', 'value'),
+     State('parch-slider', 'value')]
 )
 def predict_survival(n_clicks, age, sex, pclass, sibsp, parch):
-    if n_clicks is not None:
+    if n_clicks is not None:  # Check if the "Predict" button is clicked
         data = [[pclass, sex, age, sibsp, parch, 0, 0]]  # Assuming Embarked and Fare are not used for prediction
         survival_prob = model.predict_proba(data)[0][1]  # Probability of belonging to class 'Survived'
         # Set text color based on survival probability
         color = '#35764B' if survival_prob > 0.7 else 'red'
         # Return styled text with color
         return html.Span(f"Survival Probability: {survival_prob:.2%}", style={'color': color, 'font-weight': 'bold', 'font-size': '32px'})
+    else:
+        raise dash.exceptions.PreventUpdate  # Stop callback if button is not clicked
 
 
 # Run the app
