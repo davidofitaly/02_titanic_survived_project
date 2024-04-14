@@ -1,10 +1,10 @@
 /* styles.css */
 
 body {
-    background-image: url('/assets/new.jpg');
+    background-image: url('/assets/titanic.jpg');
     background-size: cover; /* Dopasowanie tła do rozmiaru okna */
     background-position: center; /* Wyrównanie tła do środka */
-    background-color: #ffffff;
+
 }
 .header {
     text-align: center;
@@ -20,6 +20,7 @@ body {
     font-family: Arial;
     border: 1px solid #ccc;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    font-weight: bold;
 }
 
 .component-div {
@@ -33,6 +34,7 @@ body {
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Dodaje cień */
     background-color: rgba(255, 255, 255, 0.5); /* Półprzezroczyste białe tło */
 
+
 }
 
 .button-center {
@@ -44,4 +46,9 @@ body {
 
 .rc-slider-mark-text {
     color: #333; /* Ciemniejszy kolor czcionki */
+
+}
+
+.custom-slider .rc-slider-track {
+    background-color: grey; /* Zmień kolor suwaka na czerwony */
 }

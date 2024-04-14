@@ -3,7 +3,6 @@ import dash
 from dash.dependencies import Input, Output
 import data_processing
 
-
 # Initialize the dash app
 app = dash.Dash(__name__, external_stylesheets=['./assets/styles.css'])
 
@@ -26,8 +25,10 @@ app.layout = html.Div([
         dcc.Dropdown(id='gender-dropdown', options=[
             {'label': 'Male', 'value': 0},
             {'label': 'Female', 'value': 1}
-        ])
-    ],className='component-div'),
+        ],
+        placeholder='Select Gender...',
+        style={'font-size': '14px'})
+    ], className='component-div'),
 
     html.Div([
         html.Label("Select Class:"),
@@ -35,8 +36,10 @@ app.layout = html.Div([
             {'label': 'First', 'value': 1},
             {'label': 'Second', 'value': 2},
             {'label': 'Third', 'value': 3}
-        ])
-    ],className='component-div'),
+        ],
+        placeholder='Select Class...',
+        style={'font-size': '14px'})
+    ], className='component-div'),
 
     html.Div([
         html.Label("Select Number of Siblings/Spouses Aboard:"),
@@ -46,9 +49,11 @@ app.layout = html.Div([
             max=10,
             step=1,
             value=0,
-            marks={i: str(i) for i in range(11)}  # Tworzenie etykiet dla suwaka
+            marks={i: str(i) for i in range(11)},
+            tooltip={'placement': 'bottom', 'always_visible': True, 'style':{'fontSize': '15px'}},
+            className='custom-slider'
         )
-    ],className='component-div re-slider-mark-text'),
+    ], className='component-div re-slider-mark-text'),
 
     html.Div([
         html.Label("Select Number of Parents/Children Aboard:"),
@@ -58,9 +63,11 @@ app.layout = html.Div([
             max=10,
             step=1,
             value=0,
-            marks={i: str(i) for i in range(11)}  # Tworzenie etykiet dla suwaka
+            marks={i: str(i) for i in range(11)},
+            tooltip={'placement': 'bottom', 'always_visible': True, 'style':{'fontSize': '15px'}},
+            className='custom-slider'
         )
-    ],className='component-div re-slider-mark-text'),
+    ], className='component-div re-slider-mark-text'),
 
     html.Button('Predict', id='predict-button', className='button-center'),
     html.Br(),
@@ -74,17 +81,18 @@ app.layout = html.Div([
     [Input('age-input', 'value'),
      Input('gender-dropdown', 'value'),
      Input('class-dropdown', 'value'),
-     Input('sibsp-slider', 'value'),  # Poprawiono identyfikator na 'sibsp-slider'
-     Input('parch-slider', 'value')]  # Poprawiono identyfikator na 'parch-slider'
+     Input('sibsp-slider', 'value'),
+     Input('parch-slider', 'value')]
 )
 def predict_survival(n_clicks, age, sex, pclass, sibsp, parch):
     if n_clicks is not None:
         data = [[pclass, sex, age, sibsp, parch, 0, 0]]  # Assuming Embarked and Fare are not used for prediction
         survival_prob = model.predict_proba(data)[0][1]  # Probability of belonging to class 'Survived'
         # Set text color based on survival probability
-        color = 'green' if survival_prob > 0.7 else 'red'
+        color = '#35764B' if survival_prob > 0.7 else 'red'
         # Return styled text with color
         return html.Span(f"Survival Probability: {survival_prob:.2%}", style={'color': color, 'font-weight': 'bold', 'font-size': '32px'})
+
 
 # Run the app
 if __name__ == '__main__':
