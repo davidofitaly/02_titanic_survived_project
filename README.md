@@ -31,5 +31,5 @@ Prediction Result: Displays the predicted survival probability of the passenger 
 ## External Stylesheets
 The dashboard utilizes external CSS for enhanced styling.
 
-Contributors
+## Contributors
 [Dawid Włoch](https://github.com/davidofitaly)
